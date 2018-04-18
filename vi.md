@@ -39,7 +39,7 @@ my_db_config/
 
 ## 3. Ai đã sửa code của tôi?
 
-Bản năng tự nhiên của con người là đổ lỗi cho người khác khi gặp điều gì đó bất ổn. Nếu máy chủ sản xuất gặp sự cố, rất dễ dàng để tìm ra thủ phạm — chỉ cần thực hiện một ```git blame```. Câu lệnh này sẽ hiển thị cho bạn tác giả mỗi dòng trong file, commit có sự thay đổi cuối cùng trên dòng đó và thời gian của commit đó.
+Bản năng tự nhiên của con người là đổ lỗi cho người khác khi gặp điều gì đó bất ổn. Nếu máy chủ sản phẩm gặp sự cố, rất dễ dàng để tìm ra thủ phạm — chỉ cần thực hiện một ```git blame```. Câu lệnh này sẽ hiển thị cho bạn tác giả mỗi dòng trong file, commit có sự thay đổi cuối cùng trên dòng đó và thời gian của commit đó.
 
 ```
 git blame [file_name]
@@ -54,21 +54,21 @@ Và trong ảnh chụp màn hình dưới đây, bạn có thể thấy câu l�
 
 ## 4. Xem lại lịch sử của Repository
 
-Chúng tôi đã xem xét việc sử dụng ```git log``` trong bài hướng dẫn trước đó, tuy nhiên, ở đây là 3 option mà bạn nên biết.
+Chúng tôi đã xem xét việc sử dụng ```git log``` trong bài hướng dẫn trước đó, tuy nhiên, ở đây là 3 tùy chọn mà bạn nên biết.
 
 * ```--oneline``` – Hiển thị các thông tin được nén lại bên cạnh mỗi commit để giảm bớt các commit hash và các thông điệp, tất cả được hiển thị trên 1 dòng.
-* ```--graph``` – Option này rút ra và vẽ lại một biểu đồ dựa trên một lịch sử ở bên trái của đầu ra. Nó không được sử dụng nếu bạn đang muốn xem lịch sử của chỉ 1 nhánh.
+* ```--graph``` – Tùy chọn này rút ra và vẽ lại một biểu đồ dựa trên một lịch sử ở bên trái của đầu ra. Nó không được sử dụng nếu bạn đang muốn xem lịch sử của chỉ 1 nhánh.
 * ```--all``` – Hiển thị tất cả lịch sử của tất cả các nhánh.
 
 Dưới đây là những gì kết hợp được trong các tuỳ chọn như sau:
 
 ![ahihi](https://dab1nmslvvntp.cloudfront.net/wp-content/uploads/2014/06/1402946444git-ninja-03.png)
 
-## 5. đừng bao giờ mất dấu một Commit
+## 5. Không bao giờ mất theo dõi một Commit
 
-Giả sử bạn đã commit một vài thứ mà bạn không muốn và cuối cùng bạn phải thực hiện thiết lập lại tương đối khó khăn để trở về trạng thái trước đó. Một lúc sau, bạn nhận ra là bạn đánh mất một vài thông tin trong quá trình thực hiện và muốn lấy nó lại hoặc ít nhất là xem lại nó. Đây là nơi mà ```git reflog``` có thể giúp bạn.
+Giả sử bạn đã commit một vài thứ mà bạn không muốn và cuối cùng bạn phải thực hiện thiết lập lại tương đối khó khăn để trở về trạng thái trước đó. Một lúc sau, bạn nhận ra là bạn đánh mất một vài thông tin trong quá trình thực hiện và muốn lấy nó lại hoặc ít nhất là xem lại nó. Lệnh ```git reflog``` có thể giúp bạn.
 
-Đơn giản là ```git log``` hiển thị cho bạn lần commit gần nhất, lần cha của nó, lần cha của cha nó và nhiều hơn thế. Tuy nhiên, ```git reflog``` lại là danh sách các commit mà người đứng đầu đã chỉ ra. Hãy nhớ rằng nó chỉ tồn tại trên hệ thống của bạn; nó không phải là 1 phần của repository và nó không nằm trong những thao tác push hay merge.
+Đơn giản là ```git log``` hiển thị cho bạn lần commit mới nhất, trước đó, trước đó nữa và nhiều hơn thế. Tuy nhiên, ```git reflog``` lại là danh sách các commit mà người đứng đầu đã chỉ ra. Hãy nhớ rằng nó chỉ tồn tại trên hệ thống của bạn; nó không phải là 1 phần của repository và nó không nằm trong những thao tác push hay merge.
 
 Nếu tôi thực hiện lệnh ```git log```, Tôi sẽ nhận được các commit mà đó là 1 phần trong repository của tôi:
 
@@ -113,9 +113,9 @@ Bạn có thể thấy, chúng tôi đã thêm dòng đầu và dòng 3, bỏ qu
 
 ![ahihi](https://dab1nmslvvntp.cloudfront.net/wp-content/uploads/2014/06/1402946454git-ninja-09.png)
 
-## 7. Tập hợp nhiều Commits
+## 7. Squash nhiều Commits
 
-Khi bạn submit code của bạn để xem xét và tạo pull request (điều thường thấy ở các dự án mã nguồn mở),  bạn có thể được yêu cầu thay đổi các mã của mình trước khi nó được chấp nhận. Bạn tạo ra các thay đổi, chỉ khi được yêu cầu thay đổi nó một lần nữa trong lần xem xét tiếp theo. Trước khi bạn biết nó, bạn có một vài commit bổ sung. Ý tưởng là, bạn có thể tập hợp chúng thành một sử dụng lệnh ```rebase```.
+Khi bạn submit code của bạn để xem xét và tạo pull request (điều thường thấy ở các dự án mã nguồn mở),  bạn có thể được yêu cầu thay đổi các mã của mình trước khi nó được chấp nhận. Bạn tạo ra các thay đổi, chỉ khi được yêu cầu thay đổi nó một lần nữa trong lần xem xét tiếp theo. Trước khi bạn biết nó, bạn có một vài commit bổ sung. Ý tưởng là, bạn có thể ghi đè chúng bằng sử dụng lệnh ```rebase```.
 
 ```
 
@@ -123,7 +123,7 @@ git rebase -i HEAD~[number_of_commits]
 
 ```
 
-Nếu bạn muốn tập hợp 2 commit gần nhất, câu lệnh mà bạn chạy sẽ như này.
+Nếu bạn muốn ghi đè 2 commit gần nhất, câu lệnh mà bạn chạy sẽ như này.
 
 ```
 
@@ -131,7 +131,7 @@ git rebase -i HEAD~2
 
 ```
 
-Khi chạy lệnh này, bạn được chuyển tới giao diện tương tác với danh sách các commit và hỏi bạn những commi nào bạn muốn hợp lại. Ý tưởng là bạn ```pick``` commit cuối cùng và  ```squash``` với 1 cái cũ hơn.
+Khi chạy lệnh này, bạn được chuyển tới giao diện tương tác với danh sách các commit và hỏi bạn những commit nào bạn muốn hợp lại. Ý tưởng là bạn ```pick``` commit cuối cùng và  ```squash``` với 1 cái cũ hơn.
 
 ![ahihi](https://dab1nmslvvntp.cloudfront.net/wp-content/uploads/2014/06/1402946455git-ninja-10.png)
 
